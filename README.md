@@ -1,5 +1,7 @@
 # vitest-canvas-mock
 
+[![npm (tag)](https://img.shields.io/npm/v/vitest-canvas-mock?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/vitest-canvas-mock) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vitest-canvas-mock?style=flat&colorA=000000&colorB=000000) ![NPM](https://img.shields.io/npm/l/vitest-canvas-mock?style=flat&colorA=000000&colorB=000000)
+
 Mock `canvas` when running unit tests with [vitest](https://vitest.dev/). Uses [jest-canvas-mock](https://github.com/hustcc/jest-canvas-mock).
 
 ## Install
