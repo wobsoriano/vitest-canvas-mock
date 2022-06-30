@@ -1,16 +1,16 @@
 {
-  "name": "pkg-name",
+  "name": "vitest-canvas-mock",
   "version": "0.0.0",
   "packageManager": "pnpm@7.3.0",
   "description": "",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/wobsoriano/pkg-name#readme",
+  "homepage": "https://github.com/wobsoriano/vitest-canvas-mock#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wobsoriano/pkg-name.git"
+    "url": "git+https://github.com/wobsoriano/vitest-canvas-mock.git"
   },
-  "bugs": "https://github.com/wobsoriano/pkg-name/issues",
+  "bugs": "https://github.com/wobsoriano/vitest-canvas-mock/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
