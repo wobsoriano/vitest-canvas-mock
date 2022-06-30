@@ -2,7 +2,7 @@
   "name": "vitest-canvas-mock",
   "version": "0.0.0",
   "packageManager": "pnpm@7.3.0",
-  "description": "",
+  "description": "🌗 A module used to mock canvas in Vitest.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/wobsoriano/vitest-canvas-mock#readme",
