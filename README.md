@@ -1,6 +1,6 @@
 # vitest-canvas-mock
 
-Mock `canvas` when run unit test cases with [vitest](https://vitest.dev/). Uses [jest-canvas-mock](https://github.com/hustcc/jest-canvas-mock).
+Mock `canvas` when running unit tests with [vitest](https://vitest.dev/). Uses [jest-canvas-mock](https://github.com/hustcc/jest-canvas-mock).
 
 ## Install
 
