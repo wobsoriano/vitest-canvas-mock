@@ -35,6 +35,9 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
+  "peerDependencies": {
+    "vitest": "*"
+  },
   "dependencies": {
     "jest-canvas-mock": "^2.4.0"
   },
