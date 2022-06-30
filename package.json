@@ -1,5 +1,6 @@
 {
   "name": "vitest-canvas-mock",
+  "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@7.3.0",
   "description": "🌗 A module used to mock canvas in Vitest.",
@@ -21,12 +22,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
