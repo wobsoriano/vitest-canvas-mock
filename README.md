@@ -32,7 +32,13 @@ export default defineConfig({
 })
 ```
 
-View the original usage [here](https://github.com/hustcc/jest-canvas-mock).
+## Mock Strategy
+
+View mock strategy doc [here](https://github.com/hustcc/jest-canvas-mock#mock-strategy).
+
+## Snapshots
+
+View snapshots doc [here](https://github.com/hustcc/jest-canvas-mock#snapshots)
 
 ## License
 
