@@ -1,9 +1,6 @@
 import { afterAll, vi } from 'vitest'
 // @ts-expect-error: Global jest
 global.jest = vi
-// @ts-expect-error: Missing files
-// eslint-disable-next-line import/first
-import getCanvasWindow from 'jest-canvas-mock/lib/window'
 
 const apis = [
   'Path2D',
@@ -17,12 +14,19 @@ const apis = [
   'createImageBitmap',
 ] as const
 
-const canvasWindow = getCanvasWindow({ document: window.document })
+async function importMockWindow() {
+  // @ts-expect-error: Missing files
+  const getCanvasWindow = await import('jest-canvas-mock/lib/window')
 
-apis.forEach((api) => {
-  global[api] = canvasWindow[api]
-  global.window[api] = canvasWindow[api]
-})
+  const canvasWindow = getCanvasWindow({ document: window.document })
+
+  apis.forEach((api) => {
+    global[api] = canvasWindow[api]
+    global.window[api] = canvasWindow[api]
+  })
+}
+
+importMockWindow()
 
 afterAll(() => {
   // @ts-expect-error: Global jest
