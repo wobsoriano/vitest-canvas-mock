@@ -1,7 +1,7 @@
 {
   "name": "vitest-canvas-mock",
   "type": "module",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "packageManager": "pnpm@7.3.0",
   "description": "🌗 A module used to mock canvas in Vitest.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
@@ -36,7 +36,6 @@
     "build-fast": "tsup src/index.ts --format cjs,esm",
     "build": "nr build-fast --dts-resolve",
     "lint": "eslint .",
-    "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
