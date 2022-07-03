@@ -12,14 +12,21 @@ npm install vitest-canvas-mock -D
 
 ## Usage
 
-In your `vitest.config.ts` file, create a `setupFiles` array and add `vitest-canvas-mock`:
+1. Create a new setup file that imports `vitest-canvas-mock` or add it to an existing setup file.
+
+```ts
+// vitest.setup.ts
+import 'vitest-canvas-mock'
+```
+
+2. In your `vitest.config.ts` file, create a `setupFiles` array and add that file:
 
 ```ts
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
-    setupFiles: ['vitest-canvas-mock'],
+    setupFiles: ['./vitest.setup.ts'],
     environment: 'jsdom',
     // For this config, check https://github.com/vitest-dev/vitest/issues/740
     threads: false,
