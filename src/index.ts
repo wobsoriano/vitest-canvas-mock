@@ -1,6 +1,10 @@
 import { afterAll, vi } from 'vitest'
-// @ts-expect-error: Global jest
 global.jest = vi
+
+declare global {
+  // eslint-disable-next-line no-var, vars-on-top
+  var jest: typeof vi | undefined
+}
 
 const apis = [
   'Path2D',
@@ -29,9 +33,7 @@ async function importMockWindow() {
 importMockWindow()
 
 afterAll(() => {
-  // @ts-expect-error: Global jest
   delete global.jest
-  // @ts-expect-error: Global jest
   delete global.window.jest
 })
 
