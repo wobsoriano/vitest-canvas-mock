@@ -1,7 +1,7 @@
 {
   "name": "vitest-canvas-mock",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "packageManager": "pnpm@7.3.0",
   "description": "🌗 A module used to mock canvas in Vitest.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
