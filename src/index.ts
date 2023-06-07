@@ -18,7 +18,7 @@ async function importMockWindow() {
   // @ts-expect-error: Missing files
   const getCanvasWindow = await import('jest-canvas-mock/lib/window').then(res => res.default?.default || res.default || res)
 
-  const canvasWindow = getCanvasWindow({ document: window.document })
+  const canvasWindow = getCanvasWindow(window)
 
   apis.forEach((api) => {
     global[api] = canvasWindow[api]
