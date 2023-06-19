@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       jest-canvas-mock:
-        specifier: ^2.5.1
+        specifier: ^2.4.0
         version: 2.5.1
     devDependencies:
       '@antfu/eslint-config':
