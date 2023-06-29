@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       jest-canvas-mock:
-        specifier: ^2.4.0
-        version: 2.5.1
+        specifier: ~2.4.0
+        version: 2.4.0
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.39.5
@@ -2380,8 +2380,8 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
 
-  /jest-canvas-mock@2.5.1:
-    resolution: {integrity: sha512-IVnRiz+v4EYn3ydM/pBo8GW/J+nU/Hg5gHBQQOUQhdRyNfvHnabB8ReqARLO0p+kvQghqr4V0tA92CF3JcUSRg==}
+  /jest-canvas-mock@2.4.0:
+    resolution: {integrity: sha512-mmMpZzpmLzn5vepIaHk5HoH3Ka4WykbSoLuG/EKoJd0x0ID/t+INo1l8ByfcUJuDM+RIsL4QDg/gDnBbrj2/IQ==}
     dependencies:
       cssfontparser: 1.2.1
       moo-color: 1.0.3
