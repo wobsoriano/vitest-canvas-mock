@@ -1,4 +1,6 @@
+/* eslint-disable no-restricted-globals */
 import { afterAll, vi } from 'vitest'
+
 global.jest = vi
 
 declare global {
