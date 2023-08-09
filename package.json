@@ -44,7 +44,7 @@
     "vitest": "*"
   },
   "dependencies": {
-    "jest-canvas-mock": "~2.4.0"
+    "jest-canvas-mock": "~2.5.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.6",
