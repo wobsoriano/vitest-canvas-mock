@@ -29,7 +29,14 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.ts'],
     environment: 'jsdom',
     deps: {
+      // Pre vitest 0.34
       inline: ['vitest-canvas-mock'],
+      // Vitest >= 0.34
+      optimizer: {
+        web: {
+          include: ['vitest-canvas-mock']
+        }
+      }
     },
     // For this config, check https://github.com/vitest-dev/vitest/issues/740
     threads: false,
