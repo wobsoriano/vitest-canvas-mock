@@ -29,7 +29,7 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.ts'],
     environment: 'jsdom',
     deps: {
-      // Pre 0.34
+      // vitest < 0.34
       inline: ['vitest-canvas-mock'],
       // >= 0.34
       optimizer: {
