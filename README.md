@@ -39,7 +39,14 @@ export default defineConfig({
       }
     },
     // For this config, check https://github.com/vitest-dev/vitest/issues/740
+    // Vitest < 0.1.x
     threads: false,
+    // >= 0.1.0
+    poolOptions: {
+      threads: {
+        singleThread: true,
+      },
+    },
     environmentOptions: {
       jsdom: {
         resources: 'usable',
