@@ -1,5 +1,11 @@
 # vitest-canvas-mock
 
+## 1.1.2
+
+### Patch Changes
+
+- 44699e0: Fix missing types export
+
 ## 1.1.1
 
 ### Patch Changes
