@@ -40,8 +40,9 @@
     "dev": "tsdown --watch",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "release": "bumpp && npm publish",
-    "test": "vitest",
+    "prepublishOnly": "pnpm build",
+    "release": "changeset publish",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
+    "@changesets/cli": "^2.29.7",
     "eslint": "^9.38.0",
     "jsdom": "^27.2.0",
     "tsdown": "^0.16.6",
