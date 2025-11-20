@@ -1,12 +1,14 @@
-global.window.Worker = class {
+import { vi } from 'vitest'
+
+globalThis.window.Worker = class {
   constructor(stringUrl) {
-    this.url = stringUrl;
-    this.onmessage = () => {};
+    this.url = stringUrl
+    this.onmessage = () => {}
   }
 
   postMessage(msg) {
-    this.onmessage(msg);
+    this.onmessage(msg)
   }
-};
+}
 
-global.window.URL.createObjectURL = jest.fn();
+globalThis.window.URL.createObjectURL = vi.fn()

@@ -531,11 +531,19 @@ exports[`__getDrawCalls > should not have a draw call when drawImage is called w
 
 exports[`__getDrawCalls > should not have a draw call when fillRect is passed bad values 1`] = `[]`;
 
+exports[`__getDrawCalls > should not have a draw call when fillText is not valid (NaN maxWidth) 1`] = `[]`;
+
+exports[`__getDrawCalls > should not have a draw call when fillText is not valid (NaN y) 1`] = `[]`;
+
 exports[`__getDrawCalls > should not have a draw call when fillText is not valid 1`] = `[]`;
 
 exports[`__getDrawCalls > should not have a draw call when fillText is not valid 2`] = `[]`;
 
 exports[`__getDrawCalls > should not have a draw call when strokeRect is passed bad values 1`] = `[]`;
+
+exports[`__getDrawCalls > should not have a draw call when strokeText is not valid (NaN maxWidth) 1`] = `[]`;
+
+exports[`__getDrawCalls > should not have a draw call when strokeText is not valid (NaN y) 1`] = `[]`;
 
 exports[`__getDrawCalls > should not have a draw call when strokeText is not valid 1`] = `[]`;
 

@@ -875,6 +875,46 @@ exports[`__getEvents > should have an event when clip is called with a path 2`] 
 ]
 `;
 
+exports[`__getEvents > should have an event when clip is called with a path and fillRule 1`] = `
+[
+  {
+    "props": {
+      "fillRule": "evenodd",
+      "path": [
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 10,
+            "startAngle": 0,
+            "x": 100,
+            "y": 101,
+          },
+          "transform": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+          ],
+          "type": "arc",
+        },
+      ],
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "clip",
+  },
+]
+`;
+
 exports[`__getEvents > should have an event when closePath is called 1`] = `
 [
   {
@@ -2038,6 +2078,10 @@ exports[`__getEvents > should not have a event when drawImage is called with non
 
 exports[`__getEvents > should not have a event when fillRect is passed bad values 1`] = `[]`;
 
+exports[`__getEvents > should not have a event when fillText is not valid (NaN maxWidth) 1`] = `[]`;
+
+exports[`__getEvents > should not have a event when fillText is not valid (NaN y) 1`] = `[]`;
+
 exports[`__getEvents > should not have a event when fillText is not valid 1`] = `[]`;
 
 exports[`__getEvents > should not have a event when fillText is not valid 2`] = `[]`;
@@ -2099,6 +2143,10 @@ exports[`__getEvents > should not have an event when shadowBlur is negative 1`] 
 exports[`__getEvents > should not have an event when shadowBlur is not finite 1`] = `[]`;
 
 exports[`__getEvents > should not have an event when strokeRect is passed bad values 1`] = `[]`;
+
+exports[`__getEvents > should not have an event when strokeText is not valid (NaN maxWidth) 1`] = `[]`;
+
+exports[`__getEvents > should not have an event when strokeText is not valid (NaN y) 1`] = `[]`;
 
 exports[`__getEvents > should not have an event when strokeText is not valid 1`] = `[]`;
 

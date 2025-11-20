@@ -1,4 +1,4 @@
-import { vi } from 'vitest';
+import { vi } from 'vitest'
 
 export default function mockPrototype(win) {
   /**
@@ -6,7 +6,7 @@ export default function mockPrototype(win) {
    * jsdom canvases obtained by using the `this` keyword inside the `#getContext('2d')` function
    * call. It's values are the generated `CanvasRenderingContext2D` objects.
    */
-  const generatedContexts = new WeakMap();
+  const generatedContexts = new WeakMap()
   /**
    * Overrides getContext. Every test run will create a new function that overrides the current
    * value of getContext. It attempts to preserve the original getContext function by storing it on
@@ -18,44 +18,50 @@ export default function mockPrototype(win) {
        * Contexts must be idempotent. Once they are generated, they should be returned when
        * getContext() is called on the same canvas object multiple times.
        */
-      if (generatedContexts.has(this)) return generatedContexts.get(this);
-      const ctx = new CanvasRenderingContext2D(this);
-      generatedContexts.set(this, ctx);
-      return ctx;
+      if (generatedContexts.has(this))
+        return generatedContexts.get(this)
+      const ctx = new CanvasRenderingContext2D(this)
+      generatedContexts.set(this, ctx)
+      return ctx
     }
     try {
-      if (!this.dataset.internalRequireTest) require('canvas');
-    } catch {
-      return null;
+      if (!this.dataset.internalRequireTest)
+        require('canvas')
     }
-    return getContext2D.internal.call(this, type);
-  });
+    catch {
+      return null
+    }
+    return getContext2D.internal.call(this, type)
+  })
 
-  let htmlCanvasElementPrototype = HTMLCanvasElement.prototype;
+  let htmlCanvasElementPrototype = HTMLCanvasElement.prototype
   if (win?.HTMLCanvasElement?.prototype) {
-    htmlCanvasElementPrototype = win?.HTMLCanvasElement?.prototype;
+    htmlCanvasElementPrototype = win?.HTMLCanvasElement?.prototype
   }
 
   if (!vi.isMockFunction(htmlCanvasElementPrototype.getContext)) {
-    getContext2D.internal = htmlCanvasElementPrototype.getContext;
-  } else {
-    getContext2D.internal = htmlCanvasElementPrototype.getContext.internal;
+    getContext2D.internal = htmlCanvasElementPrototype.getContext
   }
-  htmlCanvasElementPrototype.getContext = getContext2D;
+  else {
+    getContext2D.internal = htmlCanvasElementPrototype.getContext.internal
+  }
+  htmlCanvasElementPrototype.getContext = getContext2D
 
   /**
    * This function technically throws SecurityError at runtime, but it cannot be mocked, because
    * we don't know if the canvas is tainted. These kinds of errors will be silent.
    */
   const toBlobOverride = vi.fn(function toBlobOverride(callback, mimetype) {
-    if (arguments.length < 1)
+    if (arguments.length < 1) {
       throw new TypeError(
-        "Failed to execute 'toBlob' on 'HTMLCanvasElement': 1 argument required, but only 0 present."
-      );
-    if (typeof callback !== 'function')
+        'Failed to execute \'toBlob\' on \'HTMLCanvasElement\': 1 argument required, but only 0 present.',
+      )
+    }
+    if (typeof callback !== 'function') {
       throw new TypeError(
-        "Failed to execute 'toBlob' on 'HTMLCanvasElement': The callback provided as parameter 1 is not a function."
-      );
+        'Failed to execute \'toBlob\' on \'HTMLCanvasElement\': The callback provided as parameter 1 is not a function.',
+      )
+    }
 
     /**
      * Mime type must be image/jpeg or image/webp exactly for the browser to accept it, otherwise
@@ -63,57 +69,59 @@ export default function mockPrototype(win) {
      */
     switch (mimetype) {
       case 'image/webp':
-        break;
+        break
       case 'image/jpeg':
-        break;
+        break
       default:
-        mimetype = 'image/png';
+        mimetype = 'image/png'
     }
 
     /**
      * This section creates a blob of size width * height * 4. This is not actually valid, because
      * jpeg size is variable, and so is png. TODO: Is there a better way to do this?
      */
-    const length = this.width * this.height * 4;
-    const data = new Uint8Array(length);
-    const blob = new window.Blob([data], { type: mimetype });
-    setTimeout(() => callback(blob), 0);
-  });
+    const length = this.width * this.height * 4
+    const data = new Uint8Array(length)
+    const blob = new window.Blob([data], { type: mimetype })
+    setTimeout(() => callback(blob), 0)
+  })
 
   if (!vi.isMockFunction(htmlCanvasElementPrototype.toBlob)) {
-    toBlobOverride.internal = htmlCanvasElementPrototype.toBlob;
-  } else {
-    toBlobOverride.internal = htmlCanvasElementPrototype.toBlob.internal;
+    toBlobOverride.internal = htmlCanvasElementPrototype.toBlob
   }
-  htmlCanvasElementPrototype.toBlob = toBlobOverride;
+  else {
+    toBlobOverride.internal = htmlCanvasElementPrototype.toBlob.internal
+  }
+  htmlCanvasElementPrototype.toBlob = toBlobOverride
 
   /**
    * This section creates a dataurl with a validated mime type. This is not actually valid, because
    * jpeg size is variable, and so is png. TODO: Is there a better way to do this?
    */
-  const toDataURLOverride = vi.fn(function toDataURLOverride(
+  const toDataURLOverride = vi.fn((
     type,
-    encoderOptions
-  ) {
+    _encoderOptions,
+  ) => {
     switch (type) {
       case 'image/jpeg':
-        break;
+        break
       case 'image/webp':
-        break;
+        break
       default:
-        type = 'image/png';
+        type = 'image/png'
     }
 
     /**
      * This is the smallest valid data url I could generate.
      */
-    return 'data:' + type + ';base64,00';
-  });
+    return `data:${type};base64,00`
+  })
 
   if (!vi.isMockFunction(htmlCanvasElementPrototype.toDataURL)) {
-    toDataURLOverride.internal = htmlCanvasElementPrototype.toDataURL;
-  } else {
-    toDataURLOverride.internal = htmlCanvasElementPrototype.toDataURL.internal;
+    toDataURLOverride.internal = htmlCanvasElementPrototype.toDataURL
   }
-  htmlCanvasElementPrototype.toDataURL = toDataURLOverride;
+  else {
+    toDataURLOverride.internal = htmlCanvasElementPrototype.toDataURL.internal
+  }
+  htmlCanvasElementPrototype.toDataURL = toDataURLOverride
 }

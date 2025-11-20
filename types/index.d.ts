@@ -1,21 +1,23 @@
-export function setupJestCanvasMock(window?: Window): void;
+export function setupJestCanvasMock(window?: Window): void
+
+declare const VER: string
 
 export interface CanvasRenderingContext2DEvent {
   /**
    * This is the type of canvas event that occurred.
    */
-  type: string;
+  type: string
   /**
    * This is a six element array that contains the current state of the canvas `currentTransform`
    * value.
    */
-  transform: [number, number, number, number, number, number];
+  transform: [number, number, number, number, number, number]
   /**
    * These are the relevant properties related to this canvas event.
    */
   props: {
-    [key: string]: any;
-  };
+    [key: string]: any
+  }
 }
 
 declare global {
@@ -29,7 +31,7 @@ declare global {
      * @example
      * expect(ctx.__getEvents()).toMatchSnapshot();
      */
-    __getEvents(): CanvasRenderingContext2DEvent[];
+    __getEvents: () => CanvasRenderingContext2DEvent[]
 
     /**
      * Clear all the events associated with this CanvasRenderingContext2D object.
@@ -41,7 +43,7 @@ declare global {
      * ctx.__clearEvents());
      * expect(ctx.__getEvents()).toBe([]);
      */
-    __clearEvents(): void;
+    __clearEvents: () => void
 
     /**
      * Get all the successful draw calls associated with this CanvasRenderingContext2D object.
@@ -52,7 +54,7 @@ declare global {
      * @example
      * expect(ctx.__getDrawCalls()).toMatchSnapshot();
      */
-    __getDrawCalls(): CanvasRenderingContext2DEvent[];
+    __getDrawCalls: () => CanvasRenderingContext2DEvent[]
 
     /**
      * Clear all the successful draw calls associated with this CanvasRenderingContext2D object.
@@ -64,7 +66,7 @@ declare global {
      * ctx.__clearDrawCalls());
      * expect(ctx.__getDrawCalls()).toBe([]);
      */
-    __clearDrawCalls(): void;
+    __clearDrawCalls: () => void
 
     /**
      * Get the current path associated with this CanvasRenderingContext2D object.
@@ -75,7 +77,7 @@ declare global {
      * @example
      * expect(ctx.__getPath()).toMatchSnapshot();
      */
-    __getPath(): CanvasRenderingContext2DEvent[];
+    __getPath: () => CanvasRenderingContext2DEvent[]
 
     /**
      * Clears the current path associated with this CanvasRenderingContext2D object.
@@ -83,7 +85,7 @@ declare global {
      * This method cannot be used in a production environment, only with `jest` using
      * `jest-canvas-mock` and should be only used for testing.
      */
-    __clearPath(): void;
+    __clearPath: () => void
 
     /**
      * Obtains the current clipping path.
@@ -91,6 +93,6 @@ declare global {
      * This method cannot be used in a production environment, only with `jest` using
      * `jest-canvas-mock` and should be only used for testing.
      */
-    __getClippingRegion(): CanvasRenderingContext2DEvent[];
+    __getClippingRegion: () => CanvasRenderingContext2DEvent[]
   }
 }

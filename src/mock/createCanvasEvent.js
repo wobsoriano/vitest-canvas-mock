@@ -14,5 +14,5 @@
  * }
  */
 export default function createCanvasEvent(type, transform, props) {
-  return { type, transform, props };
+  return { type, transform, props }
 }

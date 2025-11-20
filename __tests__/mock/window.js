@@ -1,48 +1,48 @@
-import { describe, it, expect, vi } from 'vitest';
-import { JSDOM } from 'jsdom';
-import mockWindow from '../../src/window';
+import { JSDOM } from 'jsdom'
+import { describe, expect, it, vi } from 'vitest'
+import mockWindow from '../../src/window'
 
 describe('mockWindow', () => {
   it('mocks the passed object', () => {
-    const win = new JSDOM().window;
+    const win = new JSDOM().window
 
-    mockWindow(win);
+    mockWindow(win)
 
-    expect(win.Path2D).not.toBeNull();
-    expect(win.CanvasGradient).not.toBeNull();
-    expect(win.CanvasPattern).not.toBeNull();
-    expect(win.CanvasRenderingContext2D).not.toBeNull();
-    expect(win.DOMMatrix).not.toBeNull();
-    expect(win.ImageData).not.toBeNull();
-    expect(win.TextMetrics).not.toBeNull();
-    expect(win.ImageBitmap).not.toBeNull();
-    expect(win.createImageBitmap).not.toBeNull();
+    expect(win.Path2D).not.toBeNull()
+    expect(win.CanvasGradient).not.toBeNull()
+    expect(win.CanvasPattern).not.toBeNull()
+    expect(win.CanvasRenderingContext2D).not.toBeNull()
+    expect(win.DOMMatrix).not.toBeNull()
+    expect(win.ImageData).not.toBeNull()
+    expect(win.TextMetrics).not.toBeNull()
+    expect(win.ImageBitmap).not.toBeNull()
+    expect(win.createImageBitmap).not.toBeNull()
 
     expect(
-      vi.isMockFunction(win.HTMLCanvasElement.prototype.getContext)
-    ).toBe(true);
+      vi.isMockFunction(win.HTMLCanvasElement.prototype.getContext),
+    ).toBe(true)
     expect(vi.isMockFunction(win.HTMLCanvasElement.prototype.toBlob)).toBe(
-      true
-    );
+      true,
+    )
     expect(vi.isMockFunction(win.HTMLCanvasElement.prototype.toDataURL)).toBe(
-      true
-    );
-  });
+      true,
+    )
+  })
 
   it('mocks without a fully formed passed in window object', () => {
-    const win = mockWindow({ document: {} });
+    const win = mockWindow({ document: {} })
 
-    expect(win.Path2D).not.toBeNull();
-    expect(win.CanvasGradient).not.toBeNull();
-    expect(win.CanvasPattern).not.toBeNull();
-    expect(win.CanvasRenderingContext2D).not.toBeNull();
-    expect(win.DOMMatrix).not.toBeNull();
-    expect(win.ImageData).not.toBeNull();
-    expect(win.TextMetrics).not.toBeNull();
-    expect(win.ImageBitmap).not.toBeNull();
-    expect(win.createImageBitmap).not.toBeNull();
+    expect(win.Path2D).not.toBeNull()
+    expect(win.CanvasGradient).not.toBeNull()
+    expect(win.CanvasPattern).not.toBeNull()
+    expect(win.CanvasRenderingContext2D).not.toBeNull()
+    expect(win.DOMMatrix).not.toBeNull()
+    expect(win.ImageData).not.toBeNull()
+    expect(win.TextMetrics).not.toBeNull()
+    expect(win.ImageBitmap).not.toBeNull()
+    expect(win.createImageBitmap).not.toBeNull()
 
-    expect(vi.isMockFunction(win.HTMLCanvasElement)).toBe(false);
-    expect(win.HTMLCanvasElement).toBeUndefined();
-  });
-});
+    expect(vi.isMockFunction(win.HTMLCanvasElement)).toBe(false)
+    expect(win.HTMLCanvasElement).toBeUndefined()
+  })
+})

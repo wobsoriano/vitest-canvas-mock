@@ -1,17 +1,17 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest'
 
-let canvas;
-let ctx;
+let canvas
+let ctx
 
 beforeEach(() => {
-  canvas = document.createElement('canvas');
-  ctx = canvas.getContext('2d');
-  canvas.width = 400;
-  canvas.height = 300;
-});
+  canvas = document.createElement('canvas')
+  ctx = canvas.getContext('2d')
+  canvas.width = 400
+  canvas.height = 300
+})
 
 describe('globalCompositeOperation', () => {
-  it("should change the global composite operation when it's valid", () => {
+  it('should change the global composite operation when it\'s valid', () => {
     const validOperations = [
       'source-over',
       'source-in',
@@ -39,25 +39,25 @@ describe('globalCompositeOperation', () => {
       'saturation',
       'color',
       'luminosity',
-    ];
+    ]
     validOperations.forEach((e) => {
-      ctx.globalCompositeOperation = e;
-      expect(ctx.globalCompositeOperation).toBe(e);
-    });
-  });
+      ctx.globalCompositeOperation = e
+      expect(ctx.globalCompositeOperation).toBe(e)
+    })
+  })
 
   it('should ignore non valid values', () => {
-    [null, -1, void 0, Infinity, NaN, 'blah', ''].forEach((e) => {
-      ctx.globalCompositeOperation = e;
-      expect(ctx.globalCompositeOperation).toBe('source-over');
-    });
-  });
+    [null, -1, void 0, Infinity, Number.NaN, 'blah', ''].forEach((e) => {
+      ctx.globalCompositeOperation = e
+      expect(ctx.globalCompositeOperation).toBe('source-over')
+    })
+  })
 
   it('should save and restore composite values', () => {
-    ctx.save();
-    ctx.globalCompositeOperation = 'source-in';
-    expect(ctx.globalCompositeOperation).toBe('source-in');
-    ctx.restore();
-    expect(ctx.globalCompositeOperation).toBe('source-over');
-  });
-});
+    ctx.save()
+    ctx.globalCompositeOperation = 'source-in'
+    expect(ctx.globalCompositeOperation).toBe('source-in')
+    ctx.restore()
+    expect(ctx.globalCompositeOperation).toBe('source-over')
+  })
+})

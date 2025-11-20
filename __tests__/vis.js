@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it } from 'vitest'
 
 /**
  * test vis @AntV/G2Plot
@@ -22,5 +22,5 @@ describe('vis', () => {
     // expect(line.container.querySelector('canvas')).not.toBe(null);
     // line.destroy();
     // expect(line.container.querySelector('canvas')).toBe(null);
-  });
-});
+  })
+})

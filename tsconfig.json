@@ -7,14 +7,14 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "types": ["node"],
+    "allowJs": true,
     "strict": true,
     "noUnusedLocals": true,
     "declaration": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "skipLibCheck": true,
-    "allowJs": true
+    "skipLibCheck": true
   },
   "include": ["src"]
 }

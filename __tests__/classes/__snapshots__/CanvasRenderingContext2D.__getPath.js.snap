@@ -369,6 +369,58 @@ exports[`__getPath > should have a path item when clip is called with a path 2`]
 ]
 `;
 
+exports[`__getPath > should have a path item when clip is called with a path and fillRule 1`] = `
+[
+  {
+    "props": {},
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "beginPath",
+  },
+  {
+    "props": {
+      "fillRule": "evenodd",
+      "path": [
+        {
+          "props": {
+            "anticlockwise": false,
+            "endAngle": 6.283185307179586,
+            "radius": 10,
+            "startAngle": 0,
+            "x": 100,
+            "y": 101,
+          },
+          "transform": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+          ],
+          "type": "arc",
+        },
+      ],
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "clip",
+  },
+]
+`;
+
 exports[`__getPath > should have a path item when closePath is called 1`] = `
 [
   {

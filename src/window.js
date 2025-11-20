@@ -3,20 +3,20 @@
  * Contract: i@hust.cc
  */
 
-import Path2D from './classes/Path2D';
-import CanvasGradient from './classes/CanvasGradient';
-import CanvasPattern from './classes/CanvasPattern';
-import CanvasRenderingContext2D from './classes/CanvasRenderingContext2D';
-import DOMMatrix from './classes/DOMMatrix';
-import ImageData from './classes/ImageData';
-import TextMetrics from './classes/TextMetrics';
-import ImageBitmap from './classes/ImageBitmap';
-import mockPrototype from './mock/prototype';
-import createImageBitmap from './mock/createImageBitmap';
+import CanvasGradient from './classes/CanvasGradient'
+import CanvasPattern from './classes/CanvasPattern'
+import CanvasRenderingContext2D from './classes/CanvasRenderingContext2D'
+import DOMMatrix from './classes/DOMMatrix'
+import ImageBitmap from './classes/ImageBitmap'
+import ImageData from './classes/ImageData'
+import Path2D from './classes/Path2D'
+import TextMetrics from './classes/TextMetrics'
+import createImageBitmap from './mock/createImageBitmap'
+import mockPrototype from './mock/prototype'
 
 export default (win) => {
-  const d = win.document;
-  const f = win.document.createElement;
+  // const d = win.document
+  // const f = win.document.createElement
 
   // jsdom@11.6.2 || jest@^22.0.0, console.error in Function getContext();
   // https://github.com/jsdom/jsdom/blob/4c7698f760fc64f20b2a0ddff450eddbdd193176/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js#L55-L58
@@ -44,18 +44,26 @@ export default (win) => {
     : f.call(d, param);
   */
   // if not exist, then mock it.
-  if (!win.Path2D) win.Path2D = Path2D;
-  if (!win.CanvasGradient) win.CanvasGradient = CanvasGradient;
-  if (!win.CanvasPattern) win.CanvasPattern = CanvasPattern;
+  if (!win.Path2D)
+    win.Path2D = Path2D
+  if (!win.CanvasGradient)
+    win.CanvasGradient = CanvasGradient
+  if (!win.CanvasPattern)
+    win.CanvasPattern = CanvasPattern
   if (!win.CanvasRenderingContext2D)
-    win.CanvasRenderingContext2D = CanvasRenderingContext2D;
-  if (!win.DOMMatrix) win.DOMMatrix = DOMMatrix;
-  if (!win.ImageData) win.ImageData = ImageData;
-  if (!win.TextMetrics) win.TextMetrics = TextMetrics;
-  if (!win.ImageBitmap) win.ImageBitmap = ImageBitmap;
-  if (!win.createImageBitmap) win.createImageBitmap = createImageBitmap;
+    win.CanvasRenderingContext2D = CanvasRenderingContext2D
+  if (!win.DOMMatrix)
+    win.DOMMatrix = DOMMatrix
+  if (!win.ImageData)
+    win.ImageData = ImageData
+  if (!win.TextMetrics)
+    win.TextMetrics = TextMetrics
+  if (!win.ImageBitmap)
+    win.ImageBitmap = ImageBitmap
+  if (!win.createImageBitmap)
+    win.createImageBitmap = createImageBitmap
 
-  mockPrototype(win);
+  mockPrototype(win)
 
-  return win;
-};
+  return win
+}
