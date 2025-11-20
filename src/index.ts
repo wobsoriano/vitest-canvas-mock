@@ -4,7 +4,7 @@ import { afterAll, vi } from 'vitest'
 global.jest = vi
 
 declare global {
-  // eslint-disable-next-line no-var, vars-on-top
+  // eslint-disable-next-line vars-on-top
   var jest: typeof vi | undefined
 }
 

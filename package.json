@@ -2,7 +2,7 @@
   "name": "vitest-canvas-mock",
   "type": "module",
   "version": "0.3.3",
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "pnpm@10.22.0",
   "description": "🌗 A module used to mock canvas in Vitest.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
@@ -35,7 +35,8 @@
   "scripts": {
     "build-fast": "tsup src/index.ts --format cjs,esm",
     "build": "pnpm build-fast --dts-resolve",
-    "lint": "eslint .",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "release": "bumpp && npm publish",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
@@ -47,9 +48,8 @@
     "jest-canvas-mock": "~2.5.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.40.2",
-    "bumpp": "^9.1.1",
-    "eslint": "^8.46.0",
+    "@antfu/eslint-config": "^6.2.0",
+    "eslint": "^9.38.0",
     "jsdom": "^22.1.0",
     "tsup": "7.2.0",
     "typescript": "^5.1.6",
