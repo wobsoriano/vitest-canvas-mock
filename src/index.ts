@@ -32,11 +32,15 @@ async function importMockWindow() {
   })
 }
 
-importMockWindow()
+if ('window' in global) {
+  importMockWindow()
+}
 
 afterAll(() => {
   delete global.jest
-  delete global.window.jest
+  if ('window' in global) {
+    delete global.window.jest
+  }
 })
 
 export {}
