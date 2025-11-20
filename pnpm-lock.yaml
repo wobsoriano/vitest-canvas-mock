@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      cssfontparser:
+        specifier: ^1.2.1
+        version: 1.2.1
       jest-canvas-mock:
         specifier: ~2.5.2
         version: 2.5.2
+      moo-color:
+        specifier: ^1.0.3
+        version: 1.0.3
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^6.2.0

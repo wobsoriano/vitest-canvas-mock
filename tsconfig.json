@@ -11,10 +11,10 @@
     "noUnusedLocals": true,
     "declaration": true,
     "esModuleInterop": true,
-    "isolatedDeclarations": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": true
   },
-  "include": ["src", "tests"]
+  "include": ["src"]
 }
