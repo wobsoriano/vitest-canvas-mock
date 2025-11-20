@@ -26,7 +26,7 @@ type CanvasWindow = {
   [K in typeof apis[number]]: any
 }
 
-async function importMockWindow(): Promise<CanvasWindow> {
+export async function importMockWindow(): Promise<CanvasWindow> {
   try {
     // @ts-expect-error: jest-canvas-mock/lib/window.js type is not available
     const module = await import('jest-canvas-mock/lib/window.js')
