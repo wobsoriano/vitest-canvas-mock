@@ -37,12 +37,12 @@ export default defineConfig({
 If you reset the vitest mocks (for example, with vi.resetAllMocks()), you can call setupVitestCanvasMock() to re-create it.
 
 ```ts
-import { setupVitestCanvasMock } from 'vitest-canvas-mock';
+import { setupVitestCanvasMock } from 'vitest-canvas-mock'
 
 beforeEach(() => {
-  vi.resetAllMocks();
-  setupVitestCanvasMock();
-});
+  vi.resetAllMocks()
+  setupVitestCanvasMock()
+})
 ```
 
 ## Mock Strategy
