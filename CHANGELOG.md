@@ -1,5 +1,11 @@
 # vitest-canvas-mock
 
+## 1.0.1
+
+### Patch Changes
+
+- 98d45ea: Export importMockWindow helper
+
 ## 1.0.0
 
 ### Major Changes
