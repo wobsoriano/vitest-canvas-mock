@@ -22,13 +22,16 @@
     "test"
   ],
   "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
     "./package.json": "./package.json"
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist"
   ],
@@ -50,9 +53,9 @@
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
     "eslint": "^9.38.0",
-    "jsdom": "^22.1.0",
+    "jsdom": "^27.2.0",
     "tsdown": "^0.16.6",
-    "typescript": "^5.1.6",
-    "vitest": "^0.34.1"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.12"
   }
 }
