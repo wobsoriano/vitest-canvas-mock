@@ -54,6 +54,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
     "@changesets/cli": "^2.29.7",
+    "@types/node": "^24.10.1",
     "eslint": "^9.38.0",
     "jsdom": "^27.2.0",
     "tsdown": "^0.16.6",
