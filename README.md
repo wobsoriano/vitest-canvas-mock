@@ -28,30 +28,6 @@ export default defineConfig({
   test: {
     setupFiles: ['./vitest.setup.ts'],
     environment: 'jsdom',
-    deps: {
-      // vitest < 0.34
-      inline: ['vitest-canvas-mock'],
-      // >= 0.34
-      optimizer: {
-        web: {
-          include: ['vitest-canvas-mock']
-        }
-      }
-    },
-    // For this config, check https://github.com/vitest-dev/vitest/issues/740
-    // Vitest < 0.1.x
-    threads: false,
-    // >= 0.1.0
-    poolOptions: {
-      threads: {
-        singleThread: true,
-      },
-    },
-    environmentOptions: {
-      jsdom: {
-        resources: 'usable',
-      },
-    },
   },
 })
 ```
