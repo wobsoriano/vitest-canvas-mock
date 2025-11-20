@@ -1,7 +1,4 @@
-import { createRequire } from 'node:module'
 import { vi } from 'vitest'
-
-const require = createRequire(import.meta.url)
 
 export default function mockPrototype(win) {
   /**
