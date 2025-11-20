@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`__clearEvents > should clear the list of events 1`] = `[]`;
+
+exports[`__clearEvents > should not prevent additional events from being collected 1`] = `
+[
+  {
+    "props": {
+      "height": 4,
+      "width": 3,
+      "x": 1,
+      "y": 2,
+    },
+    "transform": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+]
+`;
