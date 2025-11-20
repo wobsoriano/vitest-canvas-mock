@@ -1,7 +1,7 @@
 {
   "name": "vitest-canvas-mock",
   "type": "module",
-  "version": "0.3.3",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
