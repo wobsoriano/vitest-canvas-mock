@@ -2,6 +2,9 @@
   "name": "vitest-canvas-mock",
   "type": "module",
   "version": "0.3.3",
+  "publishConfig": {
+    "access": "public"
+  },
   "packageManager": "pnpm@10.22.0",
   "description": "🌗 A module used to mock canvas in Vitest.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
@@ -19,22 +22,19 @@
     "test"
   ],
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
-    "build": "pnpm build-fast --dts-resolve",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "release": "bumpp && npm publish",
@@ -51,11 +51,8 @@
     "@antfu/eslint-config": "^6.2.0",
     "eslint": "^9.38.0",
     "jsdom": "^22.1.0",
-    "tsup": "7.2.0",
+    "tsdown": "^0.16.6",
     "typescript": "^5.1.6",
     "vitest": "^0.34.1"
-  },
-  "eslintConfig": {
-    "extends": "@antfu"
   }
 }
