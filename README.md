@@ -32,6 +32,18 @@ export default defineConfig({
 })
 ```
 
+## Reset
+
+If you reset the vitest mocks (for example, with vi.resetAllMocks()), you can call setupVitestCanvasMock() to re-create it.
+
+import { setupVitestCanvasMock } from 'vitest-canvas-mock';
+
+beforeEach(() => {
+  vi.resetAllMocks();
+  setupVitestCanvasMock();
+});
+
+
 ## Mock Strategy
 
 View mock strategy doc [here](https://github.com/hustcc/jest-canvas-mock#mock-strategy).
