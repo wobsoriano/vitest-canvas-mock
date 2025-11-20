@@ -3,19 +3,19 @@
  */
 
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { setupJestCanvasMock } from '../src'
+import { setupVitestCanvasMock } from '../src'
 
 beforeEach(() => {
   document.createElement('canvas')
 })
 
-describe('setupJestCanvasMock', () => {
+describe('setupVitestCanvasMock', () => {
   it('should setup after resetAllMocks', () => {
     vi.resetAllMocks()
     // Note: vi.resetAllMocks() only resets call history, not prototype mocks
     // The canvas mock is still set up from the initial import
-    // This test verifies setupJestCanvasMock can be called to re-setup mocks
-    setupJestCanvasMock()
+    // This test verifies setupVitestCanvasMock can be called to re-setup mocks
+    setupVitestCanvasMock()
     expect(document.createElement('canvas').getContext('2d')).toHaveProperty(
       'createImageData',
     )

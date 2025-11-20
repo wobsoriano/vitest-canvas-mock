@@ -11,6 +11,6 @@ if (typeof window !== 'undefined') {
   mockWindow(globalThis.window)
 }
 
-export function setupJestCanvasMock(window) {
+export function setupVitestCanvasMock(window) {
   mockWindow(window || globalThis.window)
 }

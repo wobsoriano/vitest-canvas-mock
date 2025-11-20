@@ -1,4 +1,4 @@
-export function setupJestCanvasMock(window?: Window): void
+export function setupVitestCanvasMock(window?: Window): void
 
 declare const VER: string
 
@@ -25,8 +25,8 @@ declare global {
     /**
      * Get all the events associated with this CanvasRenderingContext2D object.
      *
-     * This method cannot be used in a production environment, only with `jest` using
-     * `jest-canvas-mock` and should only be used for testing.
+     * This method cannot be used in a production environment, only with `vitest` using
+     * `vitest-canvas-mock` and should only be used for testing.
      *
      * @example
      * expect(ctx.__getEvents()).toMatchSnapshot();
@@ -36,8 +36,8 @@ declare global {
     /**
      * Clear all the events associated with this CanvasRenderingContext2D object.
      *
-     * This method cannot be used in a production environment, only with `jest` using
-     * `jest-canvas-mock` and should only be used for testing.
+     * This method cannot be used in a production environment, only with `vitest` using
+     * `vitest-canvas-mock` and should only be used for testing.
      *
      * @example
      * ctx.__clearEvents());
@@ -48,8 +48,8 @@ declare global {
     /**
      * Get all the successful draw calls associated with this CanvasRenderingContext2D object.
      *
-     * This method cannot be used in a production environment, only with `jest` using
-     * `jest-canvas-mock` and should only be used for testing.
+     * This method cannot be used in a production environment, only with `vitest` using
+     * `vitest-canvas-mock` and should only be used for testing.
      *
      * @example
      * expect(ctx.__getDrawCalls()).toMatchSnapshot();
@@ -59,8 +59,8 @@ declare global {
     /**
      * Clear all the successful draw calls associated with this CanvasRenderingContext2D object.
      *
-     * This method cannot be used in a production environment, only with `jest` using
-     * `jest-canvas-mock` and should only be used for testing.
+     * This method cannot be used in a production environment, only with `vitest` using
+     * `vitest-canvas-mock` and should only be used for testing.
      *
      * @example
      * ctx.__clearDrawCalls());
@@ -71,8 +71,8 @@ declare global {
     /**
      * Get the current path associated with this CanvasRenderingContext2D object.
      *
-     * This method cannot be used in a production environment, only with `jest` using
-     * `jest-canvas-mock` and should only be used for testing.
+     * This method cannot be used in a production environment, only with `vitest` using
+     * `vitest-canvas-mock` and should only be used for testing.
      *
      * @example
      * expect(ctx.__getPath()).toMatchSnapshot();
