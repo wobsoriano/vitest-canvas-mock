@@ -1,5 +1,11 @@
 # vitest-canvas-mock
 
+## 1.1.1
+
+### Patch Changes
+
+- 4dbcffb: Remove node import
+
 ## 1.1.0
 
 ### Minor Changes
