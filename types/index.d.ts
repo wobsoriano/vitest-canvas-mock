@@ -80,16 +80,16 @@ declare global {
     /**
      * Clears the current path associated with this CanvasRenderingContext2D object.
      *
-     * This method cannot be used in a production environment, only with `jest` using
-     * `jest-canvas-mock` and should be only used for testing.
+     * This method cannot be used in a production environment, only with `vitest` using
+     * `vitest-canvas-mock` and should be only used for testing.
      */
     __clearPath: () => void
 
     /**
      * Obtains the current clipping path.
      *
-     * This method cannot be used in a production environment, only with `jest` using
-     * `jest-canvas-mock` and should be only used for testing.
+     * This method cannot be used in a production environment, only with `vitest` using
+     * `vitest-canvas-mock` and should be only used for testing.
      */
     __getClippingRegion: () => CanvasRenderingContext2DEvent[]
   }
