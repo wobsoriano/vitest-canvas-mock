@@ -1,7 +1,5 @@
 export function setupVitestCanvasMock(window?: Window): void
 
-declare const VER: string
-
 export interface CanvasRenderingContext2DEvent {
   /**
    * This is the type of canvas event that occurred.
