@@ -1,5 +1,11 @@
 # vitest-canvas-mock
 
+## 1.1.3
+
+### Patch Changes
+
+- 9924348: Switch to OIDC for npm publishing
+
 ## 1.1.2
 
 ### Patch Changes
