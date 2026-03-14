@@ -2,27 +2,26 @@ name: Snapshot
 
 on: [push, pull_request]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   build:
     name: Build
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.31.0
 
-      - uses: actions/setup-node@v6
+      - name: Setup Vite+
+        uses: voidzero-dev/setup-vp@v1
         with:
           node-version: '24'
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          cache: true
+          run-install: true
 
       - name: Build
-        run: pnpm build
+        run: vp pack
 
       - name: Create a snapshot version
         id: snapshot
-        run: pnpm dlx pkg-pr-new publish
+        run: vp dlx pkg-pr-new publish

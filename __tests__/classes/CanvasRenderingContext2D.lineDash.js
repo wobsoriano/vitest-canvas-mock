@@ -1,31 +1,31 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest';
 
-let canvas
-let ctx
+let canvas;
+let ctx;
 
 beforeEach(() => {
-  canvas = document.createElement('canvas')
-  ctx = canvas.getContext('2d')
-  canvas.width = 400
-  canvas.height = 300
-})
+  canvas = document.createElement('canvas');
+  ctx = canvas.getContext('2d');
+  canvas.width = 400;
+  canvas.height = 300;
+});
 
 function every(items, callback) {
   for (let i = 0; i < items.length; i++) {
     if (callback(items[i])) {
-      continue
+      continue;
     }
-    return false
+    return false;
   }
-  return true
+  return true;
 }
 
 function map(items, callback) {
-  const result = []
+  const result = [];
   for (let i = 0; i < items.length; i++) {
-    result.push(callback(items[i]))
+    result.push(callback(items[i]));
   }
-  return result
+  return result;
 }
 
 function isSequence(value) {
@@ -39,7 +39,7 @@ function isSequence(value) {
     Uint32Array,
     Float32Array,
     Float64Array,
-  ].reduce((left, right) => left || value instanceof right, false)
+  ].reduce((left, right) => left || value instanceof right, false);
 }
 
 describe('lineDash', () => {
@@ -56,34 +56,31 @@ describe('lineDash', () => {
       -1,
       Infinity,
       null,
-    ]
+    ];
 
     examples.forEach((e) => {
-      ctx.setLineDash([]) // reset the linedash
+      ctx.setLineDash([]); // reset the linedash
       if (!isSequence(e)) {
-        expect(() => ctx.setLineDash(e)).toThrow(TypeError)
-      }
-      else {
-        ctx.setLineDash(e)
-        let result = map(e, val => Number(val))
-        const containsFiniteValues = every(result, val =>
-          Number.isFinite(val))
+        expect(() => ctx.setLineDash(e)).toThrow(TypeError);
+      } else {
+        ctx.setLineDash(e);
+        let result = map(e, (val) => Number(val));
+        const containsFiniteValues = every(result, (val) => Number.isFinite(val));
         if (containsFiniteValues) {
-          result = result.length % 2 === 1 ? result.concat(result) : result
+          result = result.length % 2 === 1 ? result.concat(result) : result;
+        } else {
+          result = [];
         }
-        else {
-          result = []
-        }
-        expect(ctx.getLineDash()).toEqual(result)
+        expect(ctx.getLineDash()).toEqual(result);
       }
-    })
-  })
+    });
+  });
 
   it('should save and restore lineDash values', () => {
-    ctx.save()
-    ctx.setLineDash([1, 2, 3])
-    expect(ctx.getLineDash()).toEqual([1, 2, 3, 1, 2, 3])
-    ctx.restore()
-    expect(ctx.getLineDash()).toEqual([])
-  })
-})
+    ctx.save();
+    ctx.setLineDash([1, 2, 3]);
+    expect(ctx.getLineDash()).toEqual([1, 2, 3, 1, 2, 3]);
+    ctx.restore();
+    expect(ctx.getLineDash()).toEqual([]);
+  });
+});

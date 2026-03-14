@@ -1,14 +1,14 @@
-import { vi } from 'vitest'
+import { vi } from 'vitest';
 
 globalThis.window.Worker = class {
   constructor(stringUrl) {
-    this.url = stringUrl
-    this.onmessage = () => {}
+    this.url = stringUrl;
+    this.onmessage = () => {};
   }
 
   postMessage(msg) {
-    this.onmessage(msg)
+    this.onmessage(msg);
   }
-}
+};
 
-globalThis.window.URL.createObjectURL = vi.fn()
+globalThis.window.URL.createObjectURL = vi.fn();

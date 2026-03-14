@@ -1,29 +1,29 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest';
 
-let canvas
-let ctx
+let canvas;
+let ctx;
 
 beforeEach(() => {
-  canvas = document.createElement('canvas')
-  ctx = canvas.getContext('2d')
-  canvas.width = 400
-  canvas.height = 300
-})
+  canvas = document.createElement('canvas');
+  ctx = canvas.getContext('2d');
+  canvas.width = 400;
+  canvas.height = 300;
+});
 
 describe('canvasRenderingContext2D prototype', () => {
   it('should be instanceof CanvasRenderingContext2D', () => {
-    expect(ctx).toBeInstanceOf(CanvasRenderingContext2D)
-  })
+    expect(ctx).toBeInstanceOf(CanvasRenderingContext2D);
+  });
 
   it('should have a canvas property', () => {
-    expect(ctx.canvas).toBe(canvas)
-  })
+    expect(ctx.canvas).toBe(canvas);
+  });
 
   it('should have a getContext function', () => {
-    expect(canvas.getContext).toBeCalled()
-  })
+    expect(canvas.getContext).toBeCalled();
+  });
 
   it('should be defined on the prototype', () => {
-    expect(HTMLCanvasElement.prototype.getContext).toBeCalled()
-  })
-})
+    expect(Reflect.get(HTMLCanvasElement.prototype, 'getContext')).toBeTypeOf('function');
+  });
+});

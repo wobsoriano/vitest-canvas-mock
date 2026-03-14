@@ -3,14 +3,14 @@
  * Contract: i@hust.cc
  */
 
-import mockWindow from './window'
+import mockWindow from './window';
 
 // mock global window
 // TODO: Force coverage to ignore this branch
 if (typeof window !== 'undefined') {
-  mockWindow(globalThis.window)
+  mockWindow(globalThis.window);
 }
 
 export function setupVitestCanvasMock(window) {
-  mockWindow(window || globalThis.window)
+  mockWindow(window || globalThis.window);
 }

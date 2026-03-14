@@ -16,20 +16,20 @@ npm install vitest-canvas-mock -D
 
 ```ts
 // vitest.setup.ts
-import 'vitest-canvas-mock'
+import 'vitest-canvas-mock';
 ```
 
 2. In your `vitest.config.ts` file, create a `setupFiles` array and add that file:
 
 ```ts
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     setupFiles: ['./vitest.setup.ts'],
     environment: 'jsdom',
   },
-})
+});
 ```
 
 ## Reset
@@ -37,12 +37,12 @@ export default defineConfig({
 If you reset the vitest mocks (for example, with `vi.resetAllMocks()`), you can call `setupVitestCanvasMock()` to re-create it.
 
 ```ts
-import { setupVitestCanvasMock } from 'vitest-canvas-mock'
+import { setupVitestCanvasMock } from 'vitest-canvas-mock';
 
 beforeEach(() => {
-  vi.resetAllMocks()
-  setupVitestCanvasMock()
-})
+  vi.resetAllMocks();
+  setupVitestCanvasMock();
+});
 ```
 
 ## Mock Strategy
