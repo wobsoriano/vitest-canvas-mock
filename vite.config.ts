@@ -1,0 +1,43 @@
+import { defineConfig } from 'vite-plus';
+
+export default defineConfig({
+  staged: {
+    '*': 'vp check --fix',
+  },
+  fmt: {
+    singleQuote: true,
+    semi: true,
+    experimentalSortPackageJson: true,
+    sortImports: {
+      groups: [
+        ['type-import'],
+        ['type-builtin', 'value-builtin'],
+        ['type-external', 'value-external', 'type-internal', 'value-internal'],
+        [
+          'type-parent',
+          'type-sibling',
+          'type-index',
+          'value-parent',
+          'value-sibling',
+          'value-index',
+        ],
+        ['unknown'],
+      ],
+      newlinesBetween: true,
+      order: 'asc',
+    },
+  },
+  pack: {
+    entry: 'src/index.js',
+    platform: 'neutral',
+    exports: false,
+    format: ['esm', 'cjs'],
+    dts: false,
+  },
+  lint: { options: { typeAware: true, typeCheck: true } },
+  test: {
+    environment: 'jsdom',
+    include: ['__tests__/**/*.js'],
+    setupFiles: ['./vitest.setup.ts'],
+  },
+});

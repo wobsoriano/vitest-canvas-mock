@@ -1,34 +1,34 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest';
 
-let canvas
-let ctx
+let canvas;
+let ctx;
 
 beforeEach(() => {
-  canvas = document.createElement('canvas')
-  ctx = canvas.getContext('2d')
-  canvas.width = 400
-  canvas.height = 300
-})
+  canvas = document.createElement('canvas');
+  ctx = canvas.getContext('2d');
+  canvas.width = 400;
+  canvas.height = 300;
+});
 
 function every(items, callback) {
   for (let i = 0; i < items.length; i++) {
     if (callback(items[i])) {
-      continue
+      continue;
     }
-    return false
+    return false;
   }
-  return true
+  return true;
 }
 
 describe('setTransform', () => {
   it('should be a function', () => {
-    expect(typeof ctx.setTransform).toBe('function')
-  })
+    expect(typeof ctx.setTransform).toBe('function');
+  });
 
   it('should be callable', () => {
-    ctx.setTransform(1, 2, 3, 4, 5, 6)
-    expect(ctx.setTransform).toBeCalled()
-  })
+    ctx.setTransform(1, 2, 3, 4, 5, 6);
+    expect(ctx.setTransform).toBeCalled();
+  });
 
   it('should validate setTransform input', () => {
     [
@@ -36,33 +36,32 @@ describe('setTransform', () => {
       [-1, 2, 3, 4, 5, 6],
       [Infinity, null, 'test', 'bad', Number.NaN, 34],
     ].forEach((e) => {
-      ctx.setTransform(1, 0, 0, 1, 0, 0)
-      ctx.setTransform(...e)
-      if (every(e, val => Number.isFinite(Number(val)))) {
-        expect(ctx.getTransform()).toEqual(new DOMMatrix(e))
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.setTransform(...e);
+      if (every(e, (val) => Number.isFinite(Number(val)))) {
+        expect(ctx.getTransform()).toEqual(new DOMMatrix(e));
+      } else {
+        expect(ctx.getTransform().isIdentity).toBeTruthy();
       }
-      else {
-        expect(ctx.getTransform().isIdentity).toBeTruthy()
-      }
-    })
-  })
+    });
+  });
 
   it('should accept a 2d matrix as a valid setTransform parameter', () => {
-    const m = new DOMMatrix([1, 2, 3, 4, 5, 6])
-    ctx.setTransform(m)
-    expect(ctx.getTransform()).toEqual(new DOMMatrix([1, 2, 3, 4, 5, 6]))
-  })
+    const m = new DOMMatrix([1, 2, 3, 4, 5, 6]);
+    ctx.setTransform(m);
+    expect(ctx.getTransform()).toEqual(new DOMMatrix([1, 2, 3, 4, 5, 6]));
+  });
 
-  it('should throw when setTransform doesn\'t receive valid DOMMatrix', () => {
-    expect(() => ctx.setTransform({})).toThrow(TypeError)
-  })
+  it("should throw when setTransform doesn't receive valid DOMMatrix", () => {
+    expect(() => ctx.setTransform({})).toThrow(TypeError);
+  });
 
   it('should accept 0 parameters for the setTransform function (resetTransform)', () => {
-    ctx.setTransform(1, 2, 3, 4, 5, 6)
-    expect(ctx.getTransform()).toEqual(new DOMMatrix([1, 2, 3, 4, 5, 6]))
-    ctx.setTransform()
-    expect(ctx.getTransform()).toEqual(new DOMMatrix([1, 0, 0, 1, 0, 0]))
-  })
+    ctx.setTransform(1, 2, 3, 4, 5, 6);
+    expect(ctx.getTransform()).toEqual(new DOMMatrix([1, 2, 3, 4, 5, 6]));
+    ctx.setTransform();
+    expect(ctx.getTransform()).toEqual(new DOMMatrix([1, 0, 0, 1, 0, 0]));
+  });
 
   it('should not throw but return if any value provided to setTransform is not finite', () => {
     const identity = new DOMMatrix([1, 0, 0, 1, 0, 0]);
@@ -74,12 +73,12 @@ describe('setTransform', () => {
       [1, 2, 3, 4, Number.NaN, 6],
       [1, 2, 3, 4, 5, Number.NaN],
     ].forEach((e) => {
-      ctx.setTransform(...e)
-      expect(ctx.getTransform()).toEqual(identity)
-    })
-  })
+      ctx.setTransform(...e);
+      expect(ctx.getTransform()).toEqual(identity);
+    });
+  });
 
   it('should throw if setTransform receives 3-5 parameters', () => {
-    expect(() => ctx.setTransform(1, 2, 3, 4)).toThrow(TypeError)
-  })
-})
+    expect(() => ctx.setTransform(1, 2, 3, 4)).toThrow(TypeError);
+  });
+});
