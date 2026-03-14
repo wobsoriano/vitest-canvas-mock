@@ -43,10 +43,10 @@ jobs:
             vite-task-${{ runner.os }}-
 
       - name: Lint
-        run: pnpm lint
+        run: vp run lint:ci
 
       - name: Build
-        run: pnpm build
+        run: vp pack
 
       - name: Test
-        run: pnpm test
+        run: vp run test:ci

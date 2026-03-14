@@ -20,7 +20,7 @@ jobs:
           run-install: true
 
       - name: Build
-        run: pnpm build
+        run: vp pack
 
       - name: Create a snapshot version
         id: snapshot
