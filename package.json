@@ -40,12 +40,12 @@
     "build": "vp pack",
     "dev": "vp pack --watch",
     "fmt": "vp fmt",
-    "lint": "vp lint",
+    "lint": "vp run lint:ci",
     "lint:fix": "vp lint --fix",
     "prepublishOnly": "pnpm build",
-    "release": "changeset publish",
-    "test": "vp test run",
-    "typecheck": "tsc --noEmit",
+    "release": "vp exec changeset publish",
+    "test": "vp run test:ci",
+    "typecheck": "vp run typecheck:ci",
     "prepare": "vp config"
   },
   "dependencies": {

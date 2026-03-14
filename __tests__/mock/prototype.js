@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { beforeEach, describe, expect, it, vi } from 'vite-plus/test';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import mockPrototype from '../../src/mock/prototype';
 

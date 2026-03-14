@@ -33,14 +33,23 @@ jobs:
           cache: true
           run-install: true
 
+      - name: Restore Vite+ task cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.vite/task-cache
+          key: vite-task-${{ runner.os }}-node${{ matrix.node }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            vite-task-${{ runner.os }}-node${{ matrix.node }}-
+            vite-task-${{ runner.os }}-
+
       - name: Lint
-        run: vp lint
+        run: pnpm lint
 
       - name: Typecheck
-        run: vp run typecheck
+        run: pnpm typecheck
 
       - name: Build
-        run: vp pack
+        run: pnpm build
 
       - name: Test
-        run: vp test run
+        run: pnpm test

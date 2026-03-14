@@ -1,6 +1,45 @@
 import { defineConfig } from 'vite-plus';
 
 export default defineConfig({
+  run: {
+    tasks: {
+      'lint:ci': {
+        command: 'vp lint',
+        input: [
+          'src/**/*.js',
+          '__tests__/**/*.js',
+          '__tests__/setup.ts',
+          'package.json',
+          'pnpm-lock.yaml',
+          'tsconfig.json',
+          'vite.config.ts',
+        ],
+      },
+      'test:ci': {
+        command: 'vp test run',
+        input: [
+          'src/**/*.js',
+          '__tests__/**/*.js',
+          '__tests__/setup.ts',
+          'package.json',
+          'pnpm-lock.yaml',
+          'tsconfig.json',
+          'vite.config.ts',
+        ],
+        untrackedEnv: ['CI', 'GITHUB_ACTIONS'],
+      },
+      'typecheck:ci': {
+        command: 'tsc --noEmit',
+        input: [
+          'src/**/*.js',
+          'types/**/*.d.ts',
+          'package.json',
+          'pnpm-lock.yaml',
+          'tsconfig.json',
+        ],
+      },
+    },
+  },
   staged: {
     '*': 'vp check --fix',
   },
@@ -34,10 +73,16 @@ export default defineConfig({
     format: ['esm', 'cjs'],
     dts: false,
   },
-  lint: { options: { typeAware: true, typeCheck: true } },
+  lint: {
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+    plugins: ['unicorn', 'typescript'],
+  },
   test: {
     environment: 'jsdom',
     include: ['__tests__/**/*.js'],
-    setupFiles: ['./vitest.setup.ts'],
+    setupFiles: ['__tests__/setup.ts'],
   },
 });
