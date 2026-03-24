@@ -2,7 +2,7 @@
 
 Mock `canvas` when running unit tests with [vitest](https://vitest.dev/).
 
-This is a fork of [jest-canvas-mock](https://github.com/hustcc/jest-canvas-mock), migrated to work with Vitest instead of Jest. All Jest-specific code has been replaced with Vitest equivalents.
+This is a fork of [jest-canvas-mock](https://github.com/hustcc/jest-canvas-mock), migrated to work with Vitest instead of Jest. All credits goes to the original author.
 
 ## Install
 
