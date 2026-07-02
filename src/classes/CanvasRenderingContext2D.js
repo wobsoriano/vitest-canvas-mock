@@ -32,6 +32,7 @@ const testFuncs = [
   'strokeRect',
   'rect',
   'roundRect',
+  'reset',
   'resetTransform',
   'translate',
   'moveTo',
@@ -1368,6 +1369,53 @@ export default class CanvasRenderingContext2D {
     const event = createCanvasEvent('removeHitRegion', getTransformSlice(this), { id });
 
     this._events.push(event);
+  }
+
+  /**
+   * Reset the current drawing state to the default values and clear the
+   * current path. Mirrors the standard CanvasRenderingContext2D.reset()
+   * method:
+   * https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/reset
+   */
+  reset() {
+    // Reset transform to identity at the current stack index.
+    this._transformStack[this._stackIndex][0] = 1;
+    this._transformStack[this._stackIndex][1] = 0;
+    this._transformStack[this._stackIndex][2] = 0;
+    this._transformStack[this._stackIndex][3] = 1;
+    this._transformStack[this._stackIndex][4] = 0;
+    this._transformStack[this._stackIndex][5] = 0;
+
+    // Reset all drawing-state properties to their defaults.
+    this._directionStack[this._stackIndex] = 'inherit';
+    this._fillStyleStack[this._stackIndex] = '#000000';
+    this._filterStack[this._stackIndex] = 'none';
+    this._fontStack[this._stackIndex] = '10px sans-serif';
+    this._globalAlphaStack[this._stackIndex] = 1.0;
+    this._globalCompositeOperationStack[this._stackIndex] = 'source-over';
+    this._imageSmoothingEnabledStack[this._stackIndex] = true;
+    this._imageSmoothingQualityStack[this._stackIndex] = 'low';
+    this._lineCapStack[this._stackIndex] = 'butt';
+    this._lineDashStack[this._stackIndex] = [];
+    this._lineDashOffsetStack[this._stackIndex] = 0;
+    this._lineJoinStack[this._stackIndex] = 'miter';
+    this._lineWidthStack[this._stackIndex] = 1;
+    this._miterLimitStack[this._stackIndex] = 10;
+    this._shadowBlurStack[this._stackIndex] = 0;
+    this._shadowColorStack[this._stackIndex] = 'rgba(0, 0, 0, 0)';
+    this._shadowOffsetXStack[this._stackIndex] = 0;
+    this._shadowOffsetYStack[this._stackIndex] = 0;
+    this._strokeStyleStack[this._stackIndex] = '#000000';
+    this._textAlignStack[this._stackIndex] = 'start';
+    this._textBaselineStack[this._stackIndex] = 'alphabetic';
+    this._clipStack[this._stackIndex] = [];
+
+    // Reset the current path to a single beginPath event.
+    this.__clearPath();
+
+    // Record a 'reset' event for snapshot tests, matching the style of
+    // resetTransform(), save(), and restore().
+    this._events.push(createCanvasEvent('reset', getTransformSlice(this), {}));
   }
 
   resetTransform() {
