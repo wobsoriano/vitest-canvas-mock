@@ -1280,7 +1280,7 @@ exports[`__getEvents > should have an event when miterLimit is set 1`] = `
       0,
       0,
     ],
-    "type": "lineWidth",
+    "type": "miterLimit",
   },
 ]
 `;
