@@ -1,5 +1,11 @@
 # vitest-canvas-mock
 
+## 1.1.5
+
+### Patch Changes
+
+- c49299b: Change miterLimit event type from 'lineWidth' to 'miterLimit'
+
 ## 1.1.4
 
 ### Patch Changes
