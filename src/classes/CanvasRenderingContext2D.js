@@ -50,6 +50,7 @@ const testFuncs = [
   'fillText',
   'quadraticCurveTo',
   'removeHitRegion',
+  'reset',
   'fill',
   'transform',
   'scrollPathIntoView',
@@ -1367,6 +1368,37 @@ export default class CanvasRenderingContext2D {
     }
     const event = createCanvasEvent('removeHitRegion', getTransformSlice(this), { id });
 
+    this._events.push(event);
+  }
+
+  reset() {
+    this._transformStack = [[1, 0, 0, 1, 0, 0]];
+    this._clipStack = [[]];
+    this._directionStack = ['inherit'];
+    this._fillStyleStack = ['#000000'];
+    this._filterStack = ['none'];
+    this._fontStack = ['10px sans-serif'];
+    this._globalAlphaStack = [1.0];
+    this._globalCompositeOperationStack = ['source-over'];
+    this._imageSmoothingEnabledStack = [true];
+    this._imageSmoothingQualityStack = ['low'];
+    this._lineCapStack = ['butt'];
+    this._lineDashStack = [[]];
+    this._lineDashOffsetStack = [0];
+    this._lineJoinStack = ['miter'];
+    this._lineWidthStack = [1];
+    this._miterLimitStack = [10];
+    this._shadowBlurStack = [0];
+    this._shadowColorStack = ['rgba(0, 0, 0, 0)'];
+    this._shadowOffsetXStack = [0];
+    this._shadowOffsetYStack = [0];
+    this._strokeStyleStack = ['#000000'];
+    this._textAlignStack = ['start'];
+    this._textBaselineStack = ['alphabetic'];
+    this._stackIndex = 0;
+    this.__clearPath();
+
+    const event = createCanvasEvent('reset', getTransformSlice(this), {});
     this._events.push(event);
   }
 
