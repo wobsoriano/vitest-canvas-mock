@@ -50,3 +50,6 @@ jobs:
 
       - name: Test
         run: vp run test:ci
+
+      - name: Test against published Vitest
+        run: vp run test:compat

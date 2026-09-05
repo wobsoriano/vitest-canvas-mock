@@ -5,24 +5,13 @@ export default defineConfig({
     tasks: {
       'lint:ci': {
         command: 'vp lint',
-        input: [
-          'src/**/*.js',
-          '__tests__/**/*.js',
-          '__tests__/setup.ts',
-          'package.json',
-          'tsconfig.json',
-          'vite.config.ts',
-        ],
       },
       'test:ci': {
         command: 'vp test run',
-        input: [
-          'src/**/*.js',
-          '__tests__/**/*.js',
-          '__tests__/setup.ts',
-          'package.json',
-          'vite.config.ts',
-        ],
+        untrackedEnv: ['CI', 'GITHUB_ACTIONS'],
+      },
+      'test:compat': {
+        command: 'vp exec vitest run',
         untrackedEnv: ['CI', 'GITHUB_ACTIONS'],
       },
     },

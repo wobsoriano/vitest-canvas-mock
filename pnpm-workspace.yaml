@@ -1,0 +1,15 @@
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@0.3.0
+  vite-plus: 0.3.0
+
+overrides:
+  vite@*: 'catalog:'
+
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: '*'
+    'vitest>@vitest/browser-preview': '^4.0.0'
+    '@vitest/browser-preview>vitest': '^5.0.0'
+    '@vitest/browser>vitest': '^5.0.0'
