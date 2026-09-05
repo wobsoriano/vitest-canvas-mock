@@ -42,7 +42,7 @@
     "fmt": "vp fmt",
     "lint": "vp run lint:ci",
     "lint:fix": "vp lint --fix",
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "vp run build",
     "release": "vp exec changeset publish",
     "test": "vp run test:ci",
     "prepare": "vp config"
@@ -56,17 +56,11 @@
     "@types/node": "^24.12.0",
     "jsdom": "^27.4.0",
     "typescript": "^5.9.3",
-    "vite-plus": "latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   },
   "peerDependencies": {
     "vitest": "^3.0.0 || ^4.0.0"
   },
-  "packageManager": "pnpm@10.31.0",
-  "pnpm": {
-    "overrides": {
-      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
-    }
-  }
+  "packageManager": "pnpm@10.31.0"
 }
