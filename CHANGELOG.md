@@ -1,5 +1,11 @@
 # vitest-canvas-mock
 
+## 1.2.0
+
+### Minor Changes
+
+- 59ae189: Add Vitest 5 support.
+
 ## 1.1.5
 
 ### Patch Changes
