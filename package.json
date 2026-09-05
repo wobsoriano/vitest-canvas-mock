@@ -60,7 +60,7 @@
     "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
   },
   "peerDependencies": {
-    "vitest": "^3.0.0 || ^4.0.0"
+    "vitest": "^3.0.0 || ^4.0.0 || ^5.0.0"
   },
   "packageManager": "pnpm@10.31.0",
   "pnpm": {
