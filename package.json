@@ -57,10 +57,11 @@
     "jsdom": "^27.4.0",
     "typescript": "^5.9.3",
     "vite": "catalog:",
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "vitest": "^5.0.0"
   },
   "peerDependencies": {
-    "vitest": "^3.0.0 || ^4.0.0"
+    "vitest": "^3.0.0 || ^4.0.0 || ^5.0.0"
   },
   "packageManager": "pnpm@10.31.0"
 }

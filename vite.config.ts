@@ -25,6 +25,10 @@ export default defineConfig({
         ],
         untrackedEnv: ['CI', 'GITHUB_ACTIONS'],
       },
+      'test:compat': {
+        command: 'vp exec vitest run',
+        untrackedEnv: ['CI', 'GITHUB_ACTIONS'],
+      },
     },
   },
   staged: {

@@ -10,3 +10,6 @@ peerDependencyRules:
     - vite
   allowedVersions:
     vite: '*'
+    'vitest>@vitest/browser-preview': '^4.0.0'
+    '@vitest/browser-preview>vitest': '^5.0.0'
+    '@vitest/browser>vitest': '^5.0.0'

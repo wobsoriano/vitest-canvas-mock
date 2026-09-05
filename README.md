@@ -10,6 +10,8 @@ This is a fork of [jest-canvas-mock](https://github.com/hustcc/jest-canvas-mock)
 npm install vitest-canvas-mock -D
 ```
 
+Requires Vitest 3, 4, or 5.
+
 ## Usage
 
 1. Create a new setup file that imports `vitest-canvas-mock` or add it to an existing setup file.
